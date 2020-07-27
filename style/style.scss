@@ -1,0 +1,118 @@
+@import "./color";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Karla", sans-serif;
+  font-size: 16px;
+  background: $lightGray;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 70vh;
+  width: 45%;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.17);
+  border-radius: 5px;
+  overflow: hidden;
+  .top-sub-container {
+    padding-left: 2em;
+    height: 35vh;
+    width: 100%;
+    background: white;
+    h2 {
+      color: $cyan;
+      padding: 2em 0 0.5em 0;
+    }
+    h3 {
+      color: $brightYellow;
+      padding-bottom: 0.5em;
+    }
+    p {
+      color: $grayishBlue;
+      padding-bottom: 1em;
+      line-height: 2em;
+    }
+  }
+  .bottom {
+    height: 35vh;
+    display: flex;
+    justify-content: flex-start;
+    .left-sub-container {
+      background: #2bb3b1;
+      color: $lightGray;
+      padding-left: 2em;
+      width: 50%;
+      h3 {
+        padding: 2em 0 0.5em 0;
+        .payment-access {
+          padding: 0.5em 0;
+        }
+      }
+      h1 {
+        padding: 0;
+        span {
+          font-size: 0.5em;
+          opacity: 0.7;
+          font-weight: 400;
+          margin-bottom: 0.5em;
+        }
+      }
+      a {
+        width: fit-content;
+        background: $brightYellow;
+        padding: 0.8em 4em;
+        border-radius: 5px;
+        outline: none;
+        color: $lightGray;
+        font-weight: 700;
+        margin: 1em 0;
+        display: block;
+        &:active {
+          outline: none;
+        }
+      }
+    }
+  }
+  .right-sub-container {
+    background: #4abebd;
+    width: 50%;
+    color: $lightGray;
+    padding: 2em;
+    h3 {
+      padding-bottom: 0.5em;
+    }
+    li {
+      opacity: 0.8;
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main-container {
+    height: 125vh;
+    margin-top: 10em;
+    width: 60%;
+    .top-sub-container {
+      height: 50vh;
+    }
+    .bottom {
+      flex-direction: column;
+      .right-sub-container,
+      .left-sub-container {
+        width: 100%;
+      }
+    }
+  }
+}
