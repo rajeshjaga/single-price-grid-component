@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   height: 100vh;
   width: 100%;
@@ -11,12 +12,15 @@ body {
   font-size: 16px;
   background: $lightGray;
 }
+
 a {
   text-decoration: none;
 }
+
 li {
   list-style: none;
 }
+
 .main-container {
   position: absolute;
   top: 50%;
@@ -27,10 +31,17 @@ li {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.17);
   border-radius: 5px;
   overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  flex-direction: column;
   .top-sub-container {
+    grid-column: 1/3;
+    grid-row: 1/2;
     padding-left: 2em;
     height: 35vh;
     width: 100%;
+    grid-row: 1/2;
     background: white;
     h2 {
       color: $cyan;
@@ -46,47 +57,47 @@ li {
       line-height: 2em;
     }
   }
-  .bottom {
-    height: 35vh;
-    display: flex;
-    justify-content: flex-start;
-    .left-sub-container {
-      background: #2bb3b1;
-      color: $lightGray;
-      padding-left: 2em;
-      width: 50%;
-      h3 {
+  .left-sub-container {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    background: #2bb3b1;
+    color: $lightGray;
+    padding-left: 2em;
+    width: 50%;
+    h3 {
+      &.title {
         padding: 2em 0 0.5em 0;
-        .payment-access {
-          padding: 0.5em 0;
-        }
       }
-      h1 {
-        padding: 0;
-        span {
-          font-size: 0.5em;
-          opacity: 0.7;
-          font-weight: 400;
-          margin-bottom: 0.5em;
-        }
+      &.payment-access {
+        padding: 0 0;
       }
-      a {
-        width: fit-content;
-        background: $brightYellow;
-        padding: 0.8em 4em;
-        border-radius: 5px;
+    }
+    h1 {
+      padding: 0;
+      span {
+        font-size: 0.5em;
+        opacity: 0.7;
+        font-weight: 400;
+      }
+    }
+    a {
+      width: fit-content;
+      background: $brightYellow;
+      padding: 0.8em 4em;
+      border-radius: 5px;
+      outline: none;
+      color: $lightGray;
+      font-weight: 700;
+      margin: 1em 0;
+      display: block;
+      &:active {
         outline: none;
-        color: $lightGray;
-        font-weight: 700;
-        margin: 1em 0;
-        display: block;
-        &:active {
-          outline: none;
-        }
       }
     }
   }
   .right-sub-container {
+    grid-column: 2/3;
+    grid-row: 2/3;
     background: #4abebd;
     width: 50%;
     color: $lightGray;
@@ -99,6 +110,7 @@ li {
     }
   }
 }
+
 @media screen and (max-width: 1024px) {
   .main-container {
     height: 125vh;
