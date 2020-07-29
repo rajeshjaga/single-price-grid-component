@@ -1,25 +1,5 @@
-@import "./color";
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  width: 100%;
-  font-family: "Karla", sans-serif;
-  font-size: 16px;
-  background: $lightGray;
-}
-
-a {
-  text-decoration: none;
-}
-
-li {
-  list-style: none;
-}
+@import "/style/variables";
+@import "./globals";
 
 .main-container {
   position: absolute;
@@ -28,14 +8,15 @@ li {
   transform: translate(-50%, -50%);
   height: 70vh;
   width: 45%;
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.17);
+  box-shadow: $shadow;
   border-radius: 5px;
-  overflow: hidden;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   flex-direction: column;
   .top-sub-container {
+    border-radius: 5px 5px 0 0;
     grid-column: 1/3;
     grid-row: 1/2;
     padding-left: 2em;
@@ -54,7 +35,7 @@ li {
     p {
       color: $grayishBlue;
       padding-bottom: 1em;
-      line-height: 2em;
+      line-height: 1.8em;
     }
   }
   .left-sub-container {
@@ -63,13 +44,14 @@ li {
     background: #2bb3b1;
     color: $lightGray;
     padding-left: 2em;
-    width: 50%;
+    width: 100%;
     h3 {
       &.title {
         padding: 2em 0 0.5em 0;
       }
       &.payment-access {
-        padding: 0 0;
+        padding: 0.5em 0;
+        font-size: 0.85em;
       }
     }
     h1 {
@@ -90,6 +72,7 @@ li {
       font-weight: 700;
       margin: 1em 0;
       display: block;
+      box-shadow: $shadow;
       &:active {
         outline: none;
       }
@@ -99,7 +82,7 @@ li {
     grid-column: 2/3;
     grid-row: 2/3;
     background: #4abebd;
-    width: 50%;
+    width: 100%;
     color: $lightGray;
     padding: 2em;
     h3 {
@@ -107,24 +90,27 @@ li {
     }
     li {
       opacity: 0.8;
+      padding: 0.05em 0;
     }
   }
 }
 
 @media screen and (max-width: 1024px) {
   .main-container {
-    height: 125vh;
-    margin-top: 10em;
-    width: 60%;
-    .top-sub-container {
-      height: 50vh;
+    height: 80vh;
+    width: 80%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    .right-sub-container {
+      grid-row: 3/4;
+      grid-column: 1/2;
     }
-    .bottom {
-      flex-direction: column;
-      .right-sub-container,
-      .left-sub-container {
-        width: 100%;
-      }
+    .top-sub-container {
+      height: 100%;
+    }
+    .left-sub-container {
+      grid-row: 2/3;
+      grid-column: 1/2;
     }
   }
 }
